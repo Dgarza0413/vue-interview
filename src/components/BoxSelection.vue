@@ -1,8 +1,5 @@
 <template>
-  <!-- <div> -->
-  <!-- <div>This is a box selection component</div> -->
   <span class="box" :style="style" @mouseover="mouseOver">{{ name }}</span>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -12,7 +9,6 @@ export default {
     id: String,
     sku: String,
     name: String,
-    // key: String,
     x: String,
     y: String,
     size: String,

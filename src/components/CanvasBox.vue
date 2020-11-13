@@ -25,16 +25,16 @@ export default {
       data: data,
     };
   },
-  //   methods: {
-  //     draw() {
-  //       let c = this.$refs["canvas"];
-  //       const canvas = c.getContext("2d");
-  //       canvas.beginPath();
-  //       canvas.rect(20, 20, 150, 100);
-  //       canvas.stroke();
-  //       console.log(canvas);
-  //     },
-  //   },
+  methods: {
+    draw() {
+      let c = this.$refs["canvas"];
+      const canvas = c.getContext("2d");
+      canvas.beginPath();
+      canvas.rect(20, 20, 150, 100);
+      canvas.stroke();
+      console.log(canvas);
+    },
+  },
 };
 </script>
 
