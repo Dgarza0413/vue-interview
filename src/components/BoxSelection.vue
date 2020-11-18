@@ -1,10 +1,25 @@
 <template>
-  <span class="box" :style="style" @mouseover="mouseOver">{{ name }}</span>
+  <div>
+    <span
+      class="box"
+      :style="style"
+      v-on:click="handleClick"
+      v-on:mouseover="mouseOver"
+      v-on:mouseleave="mouseLeave"
+      >box</span
+    >
+    <modal-view ref="modal"></modal-view>
+  </div>
 </template>
 
 <script>
+import ModalView from "./Modal.vue";
+
 export default {
   name: "BoxSelection",
+  components: {
+    ModalView,
+  },
   props: {
     id: String,
     sku: String,
@@ -16,7 +31,11 @@ export default {
   },
   computed: {
     style: function () {
-      return "background-color: " + this.hovering ? this.color : "yellow";
+      return {
+        "border-color": this.hovering ? this.color : "red",
+        left: this.x + "px",
+        top: this.y + "px",
+      };
     },
   },
   data: function () {
@@ -26,9 +45,22 @@ export default {
   },
   methods: {
     mouseOver: function () {
-      console.log("hovered");
-      this.hovering = !this.hovering;
-      console.log(this.hovering);
+      this.hovering = true;
+    },
+    mouseLeave: function () {
+      this.hovering = false;
+    },
+    handleClick: function () {
+      const data = this.$options.propsData;
+      console.log(data);
+      let modalView = this.$refs;
+      // console.log(this.$refs.ModalView.style.display);
+      // let modalView = this.$refs.ModalView.style;
+
+      // modalView = "inline";
+      console.log(modalView);
+
+      console.log("handle click");
     },
   },
 };
@@ -38,5 +70,6 @@ export default {
 .box {
   position: absolute;
   border: black 1px dotted;
+  transform: translate(-50%, -50%);
 }
 </style>

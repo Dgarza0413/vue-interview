@@ -1,6 +1,6 @@
 <template>
   <div class="canvas-overlay">
-    <!-- <img src="../assets/polaris-280-parts-diagram.jpg" /> -->
+    <img src="../assets/polaris-280-parts-diagram.jpg" />
     <canvas ref="canvas"></canvas>
     <box-selection
       v-for="item in data"
@@ -23,17 +23,18 @@ export default {
   data() {
     return {
       data: data,
+      showModal: false,
     };
   },
   methods: {
-    draw() {
-      let c = this.$refs["canvas"];
-      const canvas = c.getContext("2d");
-      canvas.beginPath();
-      canvas.rect(20, 20, 150, 100);
-      canvas.stroke();
-      console.log(canvas);
-    },
+    // draw() {
+    //   let c = this.$refs["canvas"];
+    //   const canvas = c.getContext("2d");
+    //   canvas.beginPath();
+    //   canvas.rect(20, 20, 150, 100);
+    //   canvas.stroke();
+    //   console.log(canvas);
+    // },
   },
 };
 </script>
@@ -42,15 +43,15 @@ export default {
 canvas {
   position: absolute;
   left: 0;
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
 }
 
 .canvas-overlay {
-  position: relative;
-  height: 2000px;
-  background-image: url("../assets/polaris-280-parts-diagram.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
+  /* position: relative; */
+  /* height: 2000px; */
+  /* background-image: url("../assets/polaris-280-parts-diagram.jpg"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
 }
 </style>
