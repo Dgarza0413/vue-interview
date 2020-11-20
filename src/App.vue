@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <CanvasBox />
-    <!-- <Modal /> -->
+    <Canvas />
   </div>
 </template>
 
 <script>
-import CanvasBox from "./components/CanvasBox.vue";
-// import Modal from "./components/Modal.vue";
+import Canvas from "./components/Canvas.vue";
 export default {
   name: "App",
   components: {
-    CanvasBox,
-    // Modal,
+    Canvas,
   },
 };
 </script>
@@ -22,7 +19,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
   margin: 0;
   padding: 0;

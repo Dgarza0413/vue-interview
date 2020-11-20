@@ -2,23 +2,25 @@
   <div class="canvas-overlay">
     <img src="../assets/polaris-280-parts-diagram.jpg" />
     <canvas ref="canvas"></canvas>
-    <box-selection
+    <selection
       v-for="item in data"
       v-bind:key="item.id"
+      :position="item.key"
+      :sku="item.sku"
       :name="item.name"
       :x="item.x"
       :y="item.y"
       :size="item.size"
       :color="item.color"
-    ></box-selection>
+    ></selection>
   </div>
 </template>
 
 <script>
 import data from "../data/data.json";
-import BoxSelection from "./BoxSelection.vue";
+import Selection from "./Selection.vue";
 export default {
-  components: { BoxSelection },
+  components: { Selection },
   name: "CanvasBox",
   data() {
     return {

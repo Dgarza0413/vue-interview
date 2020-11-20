@@ -8,7 +8,16 @@
       v-on:mouseleave="mouseLeave"
       >box</span
     >
-    <modal-view ref="modal"></modal-view>
+    <modal-view
+      ref="modal"
+      v-if="modal"
+      :sku="sku"
+      :name="name"
+      :display="display"
+      :size="size"
+      :position="position"
+      :show="display"
+    ></modal-view>
   </div>
 </template>
 
@@ -23,6 +32,7 @@ export default {
   props: {
     id: String,
     sku: String,
+    position: String,
     name: String,
     x: String,
     y: String,
@@ -40,7 +50,9 @@ export default {
   },
   data: function () {
     return {
+      modal: false,
       hovering: false,
+      display: false,
     };
   },
   methods: {
@@ -53,14 +65,11 @@ export default {
     handleClick: function () {
       const data = this.$options.propsData;
       console.log(data);
-      let modalView = this.$refs;
+      this.display = true;
+      this.modal = true;
       // console.log(this.$refs.ModalView.style.display);
       // let modalView = this.$refs.ModalView.style;
-
       // modalView = "inline";
-      console.log(modalView);
-
-      console.log("handle click");
     },
   },
 };
